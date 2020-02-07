@@ -1,0 +1,36 @@
+{
+	"name": "PPaddons",
+	"author": "Lars Juergenson",
+	"description": "PP-spezifische Add-Ons für Mediawiki-Funktionen",
+	"version": "1.0",
+	"license-name": "GPL-2.0-or-later",
+	"type": "semantic",
+	"manifest_version": 2,
+	"requires": {
+		"MediaWiki": ">= 1.31"
+	},
+	"SpecialPages": { 
+		"WantedPages_(PR_Neo)": "PP\\SpecialPages\\WantedPagesNeo",
+		"NewPages_(PR_Neo)": "PP\\SpecialPages\\NewPagesNeo",
+		"RecentChanges_(PR_Neo)": "PP\\SpecialPages\\RecentChangesNeo"
+
+	},
+	"AutoloadClasses": {
+		"PP\\SpecialPages\\WantedPagesNeo": "src/SpecialPages/WantedPagesNeo.php",
+		"PP\\SpecialPages\\NewPagesNeo": "src/SpecialPages/NewPagesNeo.php",
+		"PP\\SpecialPages\\RecentChangesNeo": "src/SpecialPages/RecentChangesNeo.php"
+
+	},
+	"Hooks": {
+		"SpecialNewpagesConditions": "PP\\SpecialPages\\NewPagesNeo::onSpecialNewpagesConditions"
+	},
+	"MessagesDirs": {
+	    "PPaddons": [
+	        "i18n"
+	     ]
+	},
+	"ExtensionMessagesFiles": {
+		"PPaddonsAlias": "i18n/PPaddons.i18n.alias.php"
+	},
+	"load_composer_autoloader":true
+}
