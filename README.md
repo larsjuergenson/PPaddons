@@ -1,4 +1,4 @@
-#PPaddons: Mediawiki addons for the Perrypedia
+# PPaddons: Mediawiki addons for the Perrypedia
 
 This Mediawiki extension provides customizations specific to the Mediawiki installation of the [Perrypedia](http://www.perrypedia.proc).
 
@@ -9,9 +9,9 @@ The rest of this is in German, the language of the Perrypedia.
 ## Features
 
 * Drei Spezialseiten, die eine Neo-spezifische Version von existierenden Seiten anbieten:
-** `Spezial:Neue Seiten (PR Neo)`
-** `Spezial:Letzte Änderungen (PR Neo)`
-** `Spezial:Gewünschte Seiten (PR Neo)`
+  * `Spezial:Neue Seiten (PR Neo)`
+  * `Spezial:Letzte Änderungen (PR Neo)`
+  * `Spezial:Gewünschte Seiten (PR Neo)`
 
 
 ## Abhängigkeiten
@@ -24,10 +24,10 @@ Wie üblich:
 
 * Das Archiv im `extensions/`-Verzeichnis der MediaWiki-Instalation entpacken.
 * Die Extension aktivieren, indem 
-```
-wfLoadExtension( 'PPaddons' );
-```
-in `LocalSettings.php` eingefügt wird.
+  ```
+  wfLoadExtension( 'PPaddons' );
+  ```
+  in `LocalSettings.php` eingefügt wird.
 
 Die Extension keine Konfigurationsoptionen, und berührt keine Datenbanktabellen. Entsprechend ist ein Aufruf von `update.php` nicht notwendig.
 
