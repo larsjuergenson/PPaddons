@@ -45,16 +45,25 @@ Die Extension keine Konfigurationsoptionen, und berührt keine Datenbanktabellen
 
 * Neue Spezialseiten werden in Mediawiki erzeugt, indem man in `extension.json` unter dem Key 
  `SpecialPages` eine Liste anlegt, die (englische) Seitennamen auf Klassen mapt. Die Klasse,
- auf die gezeigt wird, muss eine Unterklasse der [`SpecialPages`-Klasse sein](https://doc.wikimedia.org/mediawiki-core/master/php/classSpecialPage.html).
-* Wir machen das einfachste und sauberste, und deklarieren jeweils eine Unterklasse derjenigen Klasse, die die ursprüngliche Spezialseite definiert. Dadurch ist auch gleich das Handling von Filtern u.ä. übernommen.
-** Dabei **muss** der Konstruktor überschrieben werden, auch wenn der selten mehr macht, als den Konstruktor der Elternklasse aufzurufen. Das ist so, weil das Standardargument des Konstruktors (unter gewissen Umständen) den Seitennamen festlegt.
-** Zusätzlich fügt jede Klasse auf die ein oder andere Art und Weise eine Abfragebedingung hinzu, die die Ergebnisse auf PR-Neo-Seiten beschränkt. Wie das funktioniert, variiert leider von Fall zu Fall. Der einleitende Kommentar jeder Klasse beschreibt kurz, was passiert.
+ auf die gezeigt wird, muss eine Unterklasse der [`SpecialPages`-Klasse](https://doc.wikimedia.org/mediawiki-core/master/php/classSpecialPage.html) sein.
+* Wir machen das einfachste und sauberste, und deklarieren jeweils eine Unterklasse 
+  derjenigen Klasse, die die ursprüngliche Spezialseite definiert. Dadurch ist auch 
+  gleich das Handling von Filtern u.ä. übernommen.
+  * Dabei **muss** der Konstruktor überschrieben werden, auch wenn der selten mehr macht, 
+    als den Konstruktor der Elternklasse aufzurufen. Das ist so, weil das 
+    Standardargument des Konstruktors (unter gewissen Umständen) den Seitennamen 
+    festlegt.
+  * Zusätzlich fügt jede Klasse auf die ein oder andere Art und Weise eine 
+    Abfragebedingung hinzu, die die Ergebnisse auf PR-Neo-Seiten beschränkt. Wie 
+    das funktioniert, variiert leider von Fall zu Fall. Der einleitende Kommentar 
+    jeder Klasse beschreibt kurz, was passiert.
 
 ### Beim Mediawiki-Update zu beachten
 
-* Das Risiko ist gering: Im schlimmsten Fall funktionieren nach einem Mediawiki-Update die neuen Spezialseiten nicht mehr. 
+* Das Risiko ist gering: Im schlimmsten Fall funktionieren nach einem Mediawiki-Update 
+  die neuen Spezialseiten nicht mehr. 
   
-  **Ausname:** Im unwahrscheinlichen Fall, dass sich der Hook [`SpecialNewpagesConditions`](https://www.mediawiki.org/wiki/Manual:Hooks/SpecialNewpagesConditions) ändert, könnte auch die "normale" "Neue Seiten"-Seite beeinträchtigt sein.
+  **Ausname:** Im unwahrscheinlichen Fall, dass sich der Hook [`SpecialNewpagesConditions`](https://www.mediawiki.org/wiki/Manual:Hooks/SpecialNewpagesConditions) ändert, könnte auch die "normale" `Neue Seiten`-Seite beeinträchtigt sein.
 
 * In der Mediawiki-Version 1.31 werden die Klassen, die hier beerbt werden, alle von Dateien im Mediawiki-Verzeichnis `includes/specials` definiert, wo wohl die historisch ältesten dieser Klassen liegen. Neuere sind unter `includes/specialpages` zu finden.
 
