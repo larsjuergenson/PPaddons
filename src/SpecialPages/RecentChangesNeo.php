@@ -40,7 +40,14 @@ class RecentChangesNeo extends SpecialRecentChanges {
 		&$join_conds, FormOptions $opts
 	) {
 		parent::buildQuery($tables, $fields, $conds, $query_options, $join_conds, $opts);
-		$conds[] = "RIGHT(page_title, 7) = 'PR_Neo)' OR RIGHT(page_title, 16) = '(PR-Neo-Staffel)'";
+
+		// Kategorienzuweisungen joinen
+		$tables[] = 'categorylinks';
+		$fields[] = 'cl_to';
+		$join_conds['categorylinks'] = [ 'LEFT JOIN', "rc_cur_id=cl_from AND cl_to='Perry_Rhodan_Neo-Roman'" ];
+
+		// Unsere Bedingung:
+		$conds[] = "RIGHT(page_title, 7) = 'PR_Neo)' OR RIGHT(page_title, 16) = '(PR-Neo-Staffel)' OR cl_to='Perry_Rhodan_Neo-Roman'";
 
 	}
 }

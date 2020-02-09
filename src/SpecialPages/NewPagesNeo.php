@@ -51,7 +51,13 @@ class NewPagesNeo extends SpecialNewpages {
 
 		$url = $request->getRequestURL();
 		if (strpos($url, '(PR_Neo)') !== false) {
-			$conds[] = "RIGHT(page_title, 7) = 'PR_Neo)' OR RIGHT(page_title, 16) = '(PR-Neo-Staffel)'";
+			// Kategorienzuweisungen joinen
+			$tables[] = 'categorylinks';
+			$fields[] = 'cl_to';
+			$join_conds['categorylinks'] = [ 'LEFT JOIN', "rc_cur_id=cl_from AND cl_to='Perry_Rhodan_Neo-Roman'" ];
+
+		// Unsere Bedingung:
+		$conds[] = "RIGHT(page_title, 7) = 'PR_Neo)' OR RIGHT(page_title, 16) = '(PR-Neo-Staffel)' OR cl_to='Perry_Rhodan_Neo-Roman'";
 		}
 		return true;
 	}
