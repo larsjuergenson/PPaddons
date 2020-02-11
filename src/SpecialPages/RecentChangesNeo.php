@@ -48,7 +48,5 @@ class RecentChangesNeo extends SpecialRecentChanges {
 
 		// Unsere Bedingung:
 		$conds[] = "RIGHT(page_title, 7) = 'PR_Neo)' OR RIGHT(page_title, 16) = '(PR-Neo-Staffel)' OR cl_to='Perry_Rhodan_Neo-Roman' OR cl_to='Perry_Rhodan_Neo'";
-		}
-
 	}
 }
