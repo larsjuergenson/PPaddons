@@ -8,9 +8,12 @@
 	"wantedpages_(pr_neo)-summary": "<p>Liste <b>nicht vorhandener PR-Neo-Seiten</b>, geordnet nach der Anzahl von Links. Als PR-Neo-Seiten gelten Seiten, deren Titel auf <code>PR Neo)</code> oder <code>(PR-Neo-Staffel)</code> endet.</p>",
 	"newpages_(pr_neo)": "Neue Seiten (PR Neo)",
 	"newpages_(pr_neo)-summary": "<p>Liste <b>neuer PR-Neo-Seiten</b>.</p>",
+	"newpages_(klassische_serie)": "Neue Seiten (klassische Serie)",
+	"newpages_(klassische_serie)-summary": "<p>Liste neuer Seiten <b>ohne PR-Neo-Schlagwortseiten</b>.</p>",
 	"recentchanges_(pr_neo)": "Letzte Änderungen (PR Neo)",
-	"recentchanges_(pr_neo)-summary": "<p>Liste <b>der letzten Änderungen an PR-Neo-Seiten</b>.</p>"
-
+	"recentchanges_(pr_neo)-summary": "<p>Liste <b>der letzten Änderungen an PR-Neo-Seiten</b>.</p>",
+	"recentchanges_(klassische_serie)": "Letzte Änderungen (klassische Serie)",
+	"recentchanges_(klassische_serie)-summary": "<p>Liste <b>der letzten Änderungen (ohne PR Neo-Schlagwortartikel)</b>.</p>"
 }
 	
 

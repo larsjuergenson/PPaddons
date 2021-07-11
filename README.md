@@ -13,6 +13,11 @@ The rest of this is in German, the language of the Perrypedia.
   * `Spezial:Letzte Änderungen (PR Neo)`
   * `Spezial:Gewünschte Seiten (PR Neo)`
 
+* Zwei Spezialseiten, die eine Version von existierenden Seiten anbieten, die Neo-Seiten (soweit möglich) ausschließen:
+  * `Spezial:Neue Seiten (klassische Serie)`
+  * `Spezial:Letzte Änderungen (klassische Serie)`
+
+  Konkret werden alle Seiten ausgefiltert, deren Titel auf `PR Neo)` oder `(PR-Neo-Staffel)` endet. Dies erfasst die Schlagwort-Artikel und Staffel-Seiten, jedoch nicht die Handlungszusammenfassungen.
 
 ## Abhängigkeiten
 

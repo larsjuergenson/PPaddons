@@ -59,6 +59,11 @@ class NewPagesNeo extends SpecialNewpages {
 			// Unsere Bedingung:
 			$conds[] = "RIGHT(page_title, 7) = 'PR_Neo)' OR RIGHT(page_title, 16) = '(PR-Neo-Staffel)' OR cl_to='Perry_Rhodan_Neo-Roman' OR cl_to='Perry_Rhodan_Neo'";
 		}
+
+		if (strpos($url, '(klassische_Serie)') !== false) {
+			// Unsere Bedingung:
+			$conds[] = "RIGHT(page_title, 7) != 'PR_Neo)' AND RIGHT(page_title, 16) != '(PR-Neo-Staffel)'";
+		}
 		return true;
 	}
 
