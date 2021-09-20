@@ -50,11 +50,21 @@ Die Extension keine Konfigurationsoptionen, und berührt keine Datenbanktabellen
 
 ## Performance-Implikationen
 
-**Keine.** Die Extension stellt lediglich drei neue Seiten bereit, die dazu noch direkt die von Mediawiki bereitgestellten Funktionen nutzen, und lediglich eine Abfragebedingung hinzufügen.
+**Keine.** 
+
+* Die Extension stellt lediglich neue Seiten bereit, die dazu noch direkt die von Mediawiki bereitgestellten Funktionen nutzen, und lediglich eine Abfragebedingung hinzufügen.
+* Die bereitgestellte Parserfunktion ist ein dünner Wrapper um 
+  ContributionScores und nimmt nur eine einfach Stringmanipulation vor
+  (entfernen der Tausenderpunkte).
 
 ## Security-Implikationen
 
-**Keine.** Die Extension verarbeitet keine Benutzereingaben und stellt lediglich drei neue Seiten bereit, die dazu noch direkt die von Mediawiki bereitgestellten Funktionen nutzen, und lediglich eine Abfragebedingung hinzufügen.
+**Keine.** 
+
+* Die Extension verarbeitet keine Benutzereingaben und stellt lediglich drei neue Seiten bereit, die dazu noch direkt die von Mediawiki bereitgestellten Funktionen nutzen, und lediglich eine Abfragebedingung hinzufügen.
+* Die bereitgestellte Parserfunktion ist ein dünner Wrapper um 
+  ContributionScores und nimmt nur eine einfach Stringmanipulation vor
+  (entfernen der Tausenderpunkte).
 
 ## Technische Notizen
 
@@ -74,6 +84,7 @@ Die Extension keine Konfigurationsoptionen, und berührt keine Datenbanktabellen
     Abfragebedingung hinzu, die die Ergebnisse auf PR-Neo-Seiten beschränkt. Wie 
     das funktioniert, variiert leider von Fall zu Fall. Der einleitende Kommentar 
     jeder Klasse beschreibt kurz, was passiert.
+* Die Parserfunktionen werden im Hook [onParserFirstInit](https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit) registriert, die auf die implentierende PHP-Funktion zeigt. Damit alles funktioniert, muss das neue "Magic Word" (also der Parserfunktionsname) außerdem in `i18n/MagicWords.i18n.php` eingetragen werden.
 
 ### Beim Mediawiki-Update zu beachten
 
