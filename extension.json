@@ -2,14 +2,12 @@
 	"name": "PPaddons",
 	"author": "Lars Juergenson",
 	"description": "PP-spezifische Add-Ons für Mediawiki-Funktionen",
-	"version": "1.3",
+	"version": "1.4",
 	"license-name": "GPL-2.0-or-later",
-	"type": "other",
+	"type": "semantic",
 	"manifest_version": 2,
 	"requires": {
-		"MediaWiki": ">= 1.31",
-		"extensions": {
-		}
+		"MediaWiki": ">= 1.31"
 	},
 	"SpecialPages": { 
 		"WantedPages_(PR_Neo)": "PP\\SpecialPages\\WantedPagesNeo",
@@ -19,17 +17,14 @@
 		"RecentChanges_(klassische Serie)": "PP\\SpecialPages\\RecentChangesClassic"
 	},
 	"AutoloadClasses": {
-		"PPaddons": "PPaddons.php",
 		"PP\\SpecialPages\\WantedPagesNeo": "src/SpecialPages/WantedPagesNeo.php",
 		"PP\\SpecialPages\\NewPagesNeo": "src/SpecialPages/NewPagesNeo.php",
 		"PP\\SpecialPages\\NewPagesClassic": "src/SpecialPages/NewPagesClassic.php",
 		"PP\\SpecialPages\\RecentChangesNeo": "src/SpecialPages/RecentChangesNeo.php",
-		"PP\\SpecialPages\\RecentChangesClassic": "src/SpecialPages/RecentChangesClassic.php",
-		"PP\\ParserFunctions\\ParserFunctions": "src/ParserFunctions/ParserFunctions.php"
+		"PP\\SpecialPages\\RecentChangesClassic": "src/SpecialPages/RecentChangesClassic.php"
 	},
 	"Hooks": {
-		"SpecialNewpagesConditions": "PP\\SpecialPages\\NewPagesNeo::onSpecialNewpagesConditions",
-		"ParserFirstCallInit": "PPaddons::onParserFirstCallInit"
+		"SpecialNewpagesConditions": "PP\\SpecialPages\\NewPagesNeo::onSpecialNewpagesConditions"
 	},
 	"MessagesDirs": {
 	    "PPaddons": [
@@ -37,7 +32,6 @@
 	     ]
 	},
 	"ExtensionMessagesFiles": {
-		"PPaddonsMagic": "i18n/MagicWords.i18n.php",
 		"PPaddonsAlias": "i18n/PPaddons.i18n.alias.php"
 	},
 	"load_composer_autoloader":true
