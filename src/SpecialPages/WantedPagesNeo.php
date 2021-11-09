@@ -38,4 +38,8 @@ class WantedPagesNeo extends WantedPagesPage {
 
 		return $query;
 	}
+
+	public static function onWgQueryPages( &$wgQueryPages ) {
+		$wgQueryPages[] = [ WantedPagesNeo::class, 'WantedPages_(PR_Neo)'];
+	}
 }
