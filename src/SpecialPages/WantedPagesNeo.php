@@ -1,12 +1,15 @@
 <?php
 /**
+ * @file
+ * 
  * Implements Special:Wantedpages (PR Neo)
  *
  * We extend the class for the standard WantedPages page and override its
  * getQueryInfo method to add a condition on the title field.
- * *
- * @file
- * @ingroup SpecialPage
+ * 
+ * In addition, we implement the hook wgQueryPages, in order to register 
+ * the page for caching via maintenance/updateSpecialPages.php .
+ * 
  */
 
 namespace PP\SpecialPages;
@@ -26,7 +29,6 @@ class WantedPagesNeo extends WantedPagesPage {
 		parent::__construct( $name );
 	}
 
-
 	function getQueryInfo() {
 
 		// get the original query
@@ -39,6 +41,10 @@ class WantedPagesNeo extends WantedPagesPage {
 		return $query;
 	}
 
+	/**
+	 * Implements the hook wgQueryPages 
+	 * https://www.mediawiki.org/wiki/Manual:Hooks/wgQueryPages
+	 */
 	public static function onWgQueryPages( &$wgQueryPages ) {
 		$wgQueryPages[] = [ WantedPagesNeo::class, 'WantedPages_(PR_Neo)'];
 	}
